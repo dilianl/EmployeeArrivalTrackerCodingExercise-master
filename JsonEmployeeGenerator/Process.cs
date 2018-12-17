@@ -10,11 +10,10 @@ namespace JsonEmployeeGenerator
 {
     class Process
     {
-        const string Manager = "Manager";
         static string inputFile = ConfigurationManager.AppSettings["InputFilePath"];
         static string outputFile = ConfigurationManager.AppSettings["OutputFilePath"];
 
-        static string[] roles = new string[] { "Junior Developer", "Semi Senior Developer", "Senior Developer", "Principal", "Team Leader" };
+        static string[] roles = new string[] { "Manager", "Junior Developer", "Semi Senior Developer", "Senior Developer", "Principal", "Team Leader" };
 
         static string[] teams = new string[] { "Platform", "Sales", "Billing", "Mirage" };
 
@@ -50,13 +49,13 @@ namespace JsonEmployeeGenerator
 
                 if (index < 11)
                 {
-                    employee.Role = Manager;
+                    employee.Role = roles[0];
                     employees.Add(employee);
                     continue;
                 }
 
                 employee.ManagerId = generator.Next(1, 11);
-                employee.Role = roles[generator.Next(5)];
+                employee.Role = roles[generator.Next(1,6)];
 
                 // 3 teams MAX
                 int count = generator.Next(1, 4);
