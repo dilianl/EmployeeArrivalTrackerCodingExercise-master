@@ -58,9 +58,9 @@ namespace JsonEmployeeGenerator
                 employee.Role = roles[generator.Next(1,6)];
 
                 // 3 teams MAX
-                int count = generator.Next(1, 4);
-
-                for (int j = 0; j < count; j++)
+                int teamsCount = generator.Next(1, 4);
+                
+                for (int j = 0; j < teamsCount; j++)
                 {
                     string team = teams[generator.Next(4)];
                     
